@@ -23,13 +23,23 @@ jobs:
           path: preview
           ref: gh-pages
 
+      - name: get pull request ref
+        id: get_pull_request_ref
+        uses: octokit/request-action@v2.x
+        with:
+          route: GET /repos/:repository/pulls/:issue_id
+          repository: ${{ github.repository }}
+          issue_id: ${{ env.PULL_NUMBER }}
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
       - name: create deployment
         id: create_deployment
         uses: octokit/request-action@v2.x
         with:
           route: POST /repos/:repository/deployments
           repository: ${{ github.repository }}
-          ref: "'${{ env.PULL_NUMBER }}'"
+          ref: ${{ fromJson(steps.get_pull_request_ref.outputs.data).head.ref }}
           environment: dev
           auto_merge: false
           required_contexts: '[]'
