@@ -8,6 +8,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ::set-env name=PULL_NUMBER::$(echo "$GITHUB_REF" | awk -F / '{print $3}')
+        shell: bash
+
       - name: checkout base repo
         uses: actions/checkout@v2
         with:
@@ -26,7 +29,7 @@ jobs:
         with:
           route: GET /repos/:repository/pulls/:issue_id
           repository: ${{ github.repository }}
-          issue_id: ${{ github.event.issue.number }}
+          issue_id: ${{ PULL_NUMBER }}
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
