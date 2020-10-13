@@ -25,9 +25,9 @@ jobs:
           persist-credentials: false
 
       - name: test action
-        uses: felixoi/pr-preview-action@v0.1
+        uses: felixoi/pr-preview-action@v0.2
         with:
-          preview-repo: felixoi/pr-preview
+          REPOSITORY: "felixoi/pr-preview"
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           PA_TOKEN: "${{ secrets.PA_TOKEN }}"
 
