@@ -25,11 +25,12 @@ jobs:
           persist-credentials: false
 
       - name: test action
-        uses: felixoi/pr-preview-action@v0.4
+        uses: felixoi/pr-preview-action@v0.4.1
         with:
           REPOSITORY: "felixoi/pr-preview"
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           PA_TOKEN: "${{ secrets.PA_TOKEN }}"
+          PULL_REQUEST_ID: "${{ env.PULL_NUMBER }}"
 
       - name: get pull request ref
         id: get_pull_request_ref
