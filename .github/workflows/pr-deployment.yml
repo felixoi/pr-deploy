@@ -62,11 +62,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: deploy the pull request
-        run: |
-          # deployment logic goes here
-          sleep 10
-          # instead we randomly succeed or fail the deployment
-          exit $(( $RANDOM % 10 >= 5 ))
+        run: scripts/pr-deploy.sh
       - name: set deployment status to success
         id: successful_deployment
         uses: octokit/request-action@v2.x
