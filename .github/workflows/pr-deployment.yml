@@ -24,6 +24,13 @@ jobs:
           ref: gh-pages
           persist-credentials: false
 
+      - name: test action
+        uses: felixoi/pr-preview-action@master
+        with:
+          preview-repo: felixoi/pr-preview
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          PA_TOKEN: "${{ secrets.PA_TOKEN }}"
+
       - name: get pull request ref
         id: get_pull_request_ref
         uses: octokit/request-action@v2.x
