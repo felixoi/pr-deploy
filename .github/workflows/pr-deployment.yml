@@ -39,7 +39,7 @@ jobs:
         with:
           route: POST /repos/:repository/deployments
           repository: ${{ github.repository }}
-          ref: ${{ fromJson(steps.get_pull_request_ref.outputs.data).head.ref }}
+          ref: ${{ github.GITHUB_REF }}
           environment: dev
           auto_merge: false
         env:
