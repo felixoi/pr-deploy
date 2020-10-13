@@ -23,11 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy-check
     if: needs.deploy-check.outputs.triggered == 'true'
-    defaults:
-      run:
-        shell: bash
-        working-directory: scripts
     steps:
+      - uses: actions/checkout@v2
+
       - name: get pull request ref
         id: get_pull_request_ref
         uses: octokit/request-action@v2.x
@@ -66,7 +64,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: deploy the pull request
-        run: ./pr-deploy.sh
+        run: ./scripts/pr-deploy.sh
       - name: set deployment status to success
         id: successful_deployment
         uses: octokit/request-action@v2.x
