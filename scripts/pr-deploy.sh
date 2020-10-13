@@ -3,7 +3,6 @@
 cd preview || exit 1
 git config user.name "felixoi"
 git config user.email "felixoi@users.noreply.github.com"
-git remote rm origin
 git remote set-url origin "https://felixoi:$PA_TOKEN@github.com/felixoi/pr-preview"
 
 if [ -d "$PULL_NUMBER" ]; then
