@@ -63,6 +63,10 @@ jobs:
 
       - name: deploy the pull request
         run: ./deploy/scripts/pr-deploy.sh
+        env:
+          PA_TOKEN: "${{ secrets.PA_TOKEN }}"
+          PULL_NUMBER: "${{ env.PULL_NUMBER }}"
+
       - name: set deployment status to success
         id: successful_deployment
         uses: octokit/request-action@v2.x
@@ -77,8 +81,6 @@ jobs:
           state: success
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          PA_TOKEN: "${{ secrets.PA_TOKEN }}"
-          PULL_NUMBER: "${{ env.PULL_NUMBER }}"
 
       - name: set deployment status to failure
         id: failed_deployment
