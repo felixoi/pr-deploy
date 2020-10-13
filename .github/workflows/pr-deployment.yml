@@ -8,11 +8,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout base repo
-        uses: actions/checkout@v2
-
       - name: test action
-        uses: felixoi/pr-preview-action@v0.4.19
+        uses: felixoi/pr-preview-action@v0.4.20
         with:
           PREVIEW_REPOSITORY: "felixoi/pr-preview"
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
