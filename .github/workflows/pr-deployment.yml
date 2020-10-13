@@ -29,7 +29,7 @@ jobs:
         with:
           route: GET /repos/:repository/pulls/:issue_id
           repository: ${{ github.repository }}
-          issue_id: ${{ PULL_NUMBER }}
+          issue_id: ${{ env.PULL_NUMBER }}
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
