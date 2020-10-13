@@ -22,6 +22,7 @@ jobs:
           repository: felixoi/pr-preview
           path: preview
           ref: gh-pages
+          persist-credentials: false
 
       - name: get pull request ref
         id: get_pull_request_ref
