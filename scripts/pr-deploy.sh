@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd preview || exit 1
-git config user.name "felixoi"
+git config user.name "Deploy"
 git config user.email "felixoi@users.noreply.github.com"
 git remote set-url origin "https://$PA_TOKEN@github.com/felixoi/pr-preview"
 
@@ -16,7 +16,7 @@ else
 fi
 
 git add -A
-git commit -q -m "Deploy $(date)"
+git commit -q -m "Deployed preview for PR #$PULL_NUMBER"
 git push -q origin gh-pages
 
 # instead we randomly succeed or fail the deployment
