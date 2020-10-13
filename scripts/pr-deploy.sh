@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "deployment"
+echo "$pwd"
 # deployment logic goes here
 sleep 10
 # instead we randomly succeed or fail the deployment
