@@ -62,7 +62,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: deploy the pull request
-        run: scripts/pr-deploy.sh
+        run: ./scripts/pr-deploy.sh
       - name: set deployment status to success
         id: successful_deployment
         uses: octokit/request-action@v2.x
