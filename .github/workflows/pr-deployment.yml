@@ -25,7 +25,7 @@ jobs:
           persist-credentials: false
 
       - name: test action
-        uses: felixoi/pr-preview-action@v0.4.6
+        uses: felixoi/pr-preview-action@v0.4.7
         with:
           REPOSITORY: "${{ env.GITHUB_REPOSITORY }}"
           PREVIEW_REPOSITORY: "felixoi/pr-preview"
