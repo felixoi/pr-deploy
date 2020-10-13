@@ -7,7 +7,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: needs.deploy-check.outputs.triggered == 'true'
     steps:
       - name: checkout base repo
         uses: actions/checkout@v2
