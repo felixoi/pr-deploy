@@ -24,7 +24,16 @@ jobs:
     needs: deploy-check
     if: needs.deploy-check.outputs.triggered == 'true'
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout base repo
+        uses: actions/checkout@v2
+        with:
+          path: deploy
+
+      - name: checkout preview repo
+        uses: actions/checkout@v2
+        with:
+          repository: felixoi/pr-preview
+          path: preview
 
       - name: get pull request ref
         id: get_pull_request_ref
@@ -64,7 +73,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: deploy the pull request
-        run: ./scripts/pr-deploy.sh
+        run: ./deploy/scripts/pr-deploy.sh
       - name: set deployment status to success
         id: successful_deployment
         uses: octokit/request-action@v2.x
