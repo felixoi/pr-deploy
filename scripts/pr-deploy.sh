@@ -3,14 +3,7 @@
 cd preview || exit 1
 git config user.name "felixoi"
 git config user.email "felixoi@users.noreply.github.com"
-git remote set-url origin "https://felixoi:$PA_TOKEN@github.com/felixoi/pr-preview"
-
-if [ -z "$PA_TOKEN" ]
-then
-      echo "\$PA_TOKEN is empty"
-else
-      echo "\$PA_TOKEN is NOT empty"
-fi
+git remote set-url origin "https://$PA_TOKEN@github.com/felixoi/pr-preview"
 
 if [ -d "$PULL_NUMBER" ]; then
   echo "Updating preview for pull request #$PULL_NUMBER..."
