@@ -27,7 +27,7 @@ jobs:
       - name: test action
         uses: felixoi/pr-preview-action@v0.4.6
         with:
-          REPOSITORY: "${{ GITHUB_REPOSITORY }}"
+          REPOSITORY: "${{ env.GITHUB_REPOSITORY }}"
           PREVIEW_REPOSITORY: "felixoi/pr-preview"
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           PA_TOKEN: "${{ secrets.PA_TOKEN }}"
