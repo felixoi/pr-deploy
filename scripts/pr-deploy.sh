@@ -8,10 +8,10 @@ git remote set-url origin "https://$PA_TOKEN@github.com/felixoi/pr-preview"
 if [ -d "$PULL_NUMBER" ]; then
   echo "Updating preview for pull request #$PULL_NUMBER..."
   rm -r ./"$PULL_NUMBER"
-  rsync -av --progress ./../deploy/* ./"$PULL_NUMBER" --exclude={'.git','.github','scripts'}
+  rsync -av --progress ./../deploy/* ./"$PULL_NUMBER"/ --exclude={'.git','.github','scripts'}
 else
   echo "Creating preview for pull request #$PULL_NUMBER..."
-  rsync -av --progress ./../deploy/* ./"$PULL_NUMBER" --exclude={'.git','.github','scripts'}
+  rsync -av --progress ./../deploy/* ./"$PULL_NUMBER"/ --exclude={'.git','.github','scripts'}
 fi
 
 git add -A
