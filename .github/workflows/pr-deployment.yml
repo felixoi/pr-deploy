@@ -29,7 +29,7 @@ jobs:
         with:
           route: POST /repos/:repository/deployments
           repository: ${{ github.repository }}
-          ref: "${{ env.PULL_NUMBER }}"
+          ref: "'${{ env.PULL_NUMBER }}'"
           environment: dev
           auto_merge: false
           required_contexts: '[]'
