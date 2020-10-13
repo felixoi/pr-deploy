@@ -5,6 +5,7 @@ git config user.name "felixoi"
 git config user.email "felixoi@users.noreply.github.com"
 git remote set-url origin "https://$PA_TOKEN@github.com/felixoi/pr-preview"
 
+mkdir -p "$PULL_NUMBER"
 if [ -d "$PULL_NUMBER" ]; then
   echo "Updating preview for pull request #$PULL_NUMBER..."
   rm -r ./"$PULL_NUMBER"
