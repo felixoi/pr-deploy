@@ -25,7 +25,7 @@ jobs:
           persist-credentials: false
 
       - name: test action
-        uses: felixoi/pr-preview-action@master
+        uses: felixoi/pr-preview-action@v0.1
         with:
           preview-repo: felixoi/pr-preview
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
