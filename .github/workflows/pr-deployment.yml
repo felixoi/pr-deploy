@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: test action
-        uses: felixoi/pr-preview-action@v0.4.29
+        uses: felixoi/pr-preview-action@v0.4.30
         with:
           PREVIEW_REPOSITORY: "felixoi/pr-preview"
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
