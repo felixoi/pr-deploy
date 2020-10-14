@@ -8,6 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: test action
         uses: felixoi/pr-preview-action@v0.4.22
         with:
