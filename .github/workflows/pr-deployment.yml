@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test action
-        uses: felixoi/pr-preview-action@v0.4.21
+        uses: felixoi/pr-preview-action@v0.4.22
         with:
           PREVIEW_REPOSITORY: "felixoi/pr-preview"
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
